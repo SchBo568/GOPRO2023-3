@@ -1,0 +1,213 @@
+<mat-tab-group>
+    <mat-tab label="To Pay / In Validation">
+      <br>
+        <div class="card-container">
+            <div class="card" *ngFor="let reservation of validationReservations" >
+              <img [src]="reservation.src" class="card-img-top" alt="Card Image">
+              <div class="card-body">
+                <h5 class="card-title">Tool Name: <b>{{reservation.name}}</b></h5>
+                <div class="card-text">
+                  <div>
+                    <h5>Reservation Date (From - Till):</h5>
+                    <div class="tool-info-column">
+                      <p class="truncate-text">{{reservation.startDate}} - {{reservation.endDate}}</p>
+                    </div>
+                    <div class="tool-info">
+                      <h5>Category:</h5>
+                      <p><b>{{reservation.category.name}}</b></p>
+                      <br>
+                    </div>
+                  </div>
+                  <hr>
+                </div>
+                <div class="card-text"><mat-icon>store</mat-icon>
+                  <div class="tool-info">
+                    <h5>Name:</h5>
+                    <h5><b>{{reservation.kiosk.name}}</b></h5>
+                    <br>
+                  </div>
+                  <h5><b>{{reservation.kiosk.address}}</b></h5>
+                  <br>
+                <h4>Code: <b>After Payment</b></h4>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-md-6">
+                    <small class="text-body-secondary">
+                      Price: <b>{{reservation.price}} € </b>
+                    </small>
+                  </div>
+                  <div class="col-md-6 text-right">
+                    <small class="text-body-secondary">
+                      <button mat-icon-button class="myButton" [matMenuTriggerFor]="menu">
+                        <b>Actions</b>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-icon-button (click)="showPaymentDetails(reservation.communication!, reservation.price!)" mat-menu-item>Show Bank Details <mat-icon>payment</mat-icon></button>
+                        <button mat-icon-button (click)="deleteReservation(reservation.toolId!, reservation.reservationId!)" mat-menu-item>Cancel Reservation <mat-icon>cancel</mat-icon></button>
+                      </mat-menu>
+                    </small>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Paid">
+      <br>
+      <div class="card-container">
+          <div class="card" *ngFor="let reservation of paidReservations" >
+            <img [src]="reservation.src" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">Tool Name: <b>{{reservation.name}}</b></h5>
+              <div class="card-text">
+                <div>
+                  <h5>Reservation Date (From - Till):</h5>
+                  <div class="tool-info-column">
+                    <p class="truncate-text">{{reservation.startDate}} - {{reservation.endDate}}</p>
+                  </div>
+                  <div class="tool-info">
+                    <h5>Category:</h5>
+                    <p><b>{{reservation.category.name}}</b></p>
+                    <br>
+                  </div>
+                </div>
+                <hr>
+              </div>
+              <div class="card-text"><mat-icon>store</mat-icon>
+                <div class="tool-info">
+                  <h5>Name:</h5>
+                  <h5><b>{{reservation.kiosk.name}}</b></h5>
+                  <br>
+                </div>
+                <h5><b>{{reservation.kiosk.address}}</b></h5>
+                <br>
+                <h4>Code: <b>{{reservation.code}}</b></h4>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col-md-6">
+                  <small class="text-body-secondary">
+                    Price: <b>{{reservation.price}} € </b>
+                  </small>
+                </div>
+                <div class="col-md-6 text-right">
+                  <small class="text-body-secondary">
+                    <button mat-icon-button class="myButton" [matMenuTriggerFor]="menu">
+                      <b>Actions</b>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                      <button mat-icon-button (click)="updateReservationTakeFromKiosk(reservation.toolId!, reservation.reservationId!)" mat-menu-item>Take from Kiosk <mat-icon>login</mat-icon></button>
+                    </mat-menu>
+                  </small>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+      </div>
+      </mat-tab>
+    <mat-tab label="In Use">
+      <br>
+      <div class="card-container">
+          <div class="card" *ngFor="let reservation of inUseReservations" >
+            <img [src]="reservation.src" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">Tool Name: <b>{{reservation.name}}</b></h5>
+              <div class="card-text">
+                <div>
+                  <h5>Reservation Date (From - Till):</h5>
+                  <div class="tool-info-column">
+                    <p class="truncate-text">{{reservation.startDate}} - {{reservation.endDate}}</p>
+                  </div>
+                  <div class="tool-info">
+                    <h5>Category:</h5>
+                    <p><b>{{reservation.category.name}}</b></p>
+                    <br>
+                  </div>
+                </div>
+                <hr>
+              </div>
+              <div class="card-text"><mat-icon>store</mat-icon>
+                <div class="tool-info">
+                  <h5>Name:</h5>
+                  <h5><b>{{reservation.kiosk.name}}</b></h5>
+                  <br>
+                </div>
+                <h5><b>{{reservation.kiosk.address}}</b></h5>
+                <br>
+                <h4>Code: <b>{{reservation.code}}</b></h4>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col-md-6">
+                  <small class="text-body-secondary">
+                    Price: <b>{{reservation.price}} € </b>
+                  </small>
+                </div>
+                <div class="col-md-6 text-right">
+                  <small class="text-body-secondary">
+                    <button mat-icon-button class="myButton" [matMenuTriggerFor]="menu">
+                      <b>Actions</b>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                      <button mat-icon-button (click)="openReviewDialog(reservation.toolId!, reservation.reservationId!)" mat-menu-item>Return to Kiosk <mat-icon>logout</mat-icon></button>
+                    </mat-menu>
+                  </small>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+      </div>
+      </mat-tab>
+      <mat-tab label="All Reservations">
+        <br>
+      <div class="card-container">
+          <div class="card" *ngFor="let reservation of allReservations" >
+            <img [src]="reservation.src" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">Tool Name: <b>{{reservation.name}}</b></h5>
+              <div class="card-text">
+                <div>
+                  <h5>Reservation Date (From - Till):</h5>
+                  <div class="tool-info-column">
+                    <p class="truncate-text">{{reservation.startDate}} - {{reservation.endDate}}</p>
+                  </div>
+                  <div class="tool-info">
+                    <h5>Category:</h5>
+                    <p><b>{{reservation.category.name}}</b></p>
+                    <br>
+                  </div>
+                </div>
+                <hr>
+              </div>
+              <div class="card-text"><mat-icon>store</mat-icon>
+                <div class="tool-info">
+                  <h5>Name:</h5>
+                  <h5><b>{{reservation.kiosk.name}}</b></h5>
+                  <br>
+                </div>
+                <h5><b>{{reservation.kiosk.address}}</b></h5>
+                <br>
+                <h4>Code: <b>{{reservation.code}}</b></h4>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col-md-6">
+                  <small class="text-body-secondary">
+                    Price: <b>{{reservation.price}} € </b>
+                  </small>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+      </div>
+      </mat-tab>
+  </mat-tab-group>

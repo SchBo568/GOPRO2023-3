@@ -1,0 +1,24 @@
+<div class="payment-dialog-container">
+    <h1 mat-dialog-title>Payment Information</h1>
+    <div mat-dialog-content>
+      <div class="payment-details">
+        <div class="detail">
+          <span class="label">IBAN:</span>
+          <span class="value">{{ iban }}</span>
+        </div>
+        <div class="detail">
+          <span class="label">Communication:</span>
+          <span class="value">{{ communication }}</span>
+        </div>
+        <div class="detail">
+            <span class="label">Price:</span>
+            <span class="value">{{ price }} €</span>
+          </div>
+      </div>
+      <p class="payment-message">
+        Pay it immediately, so our Administrator can provide you with your code today!
+      </p>
+      <button class="myButton" (click) = "closeDialog()" mat-button>Ok</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,24 @@
+<br>
+<br>
+<div class="card-container">
+  <div class="card" *ngFor="let kiosk of kiosks">
+    <mat-icon>store</mat-icon>
+    <div class="card-body">
+      <h5 class="card-title"> Kiosk Name: <b>{{ kiosk.name }}</b></h5>
+      <div class="card-text">
+        <div>
+          <h5>Address:</h5>
+          <div class="tool-info-column">
+            <p class="truncate-text"><b>{{ kiosk.address }} </b></p>
+          </div>
+          <div class="tool-info">
+            <h5>available Places:</h5>
+            <p><b>{{ kiosk.used }} / {{kiosk.placeholder}}</b></p>
+            <br>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+<br>
+<br>

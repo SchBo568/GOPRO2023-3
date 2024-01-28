@@ -1,0 +1,47 @@
+<div class="homepage-container">
+    <img src="assets/homepage-header.jpg" alt="Homepage Image" class="homepage-image">
+    <div class="homepage-content">
+      <h1 *ngIf="isLoggedIn">Welcome to Our Website, {{firstname}}</h1>
+      <h1 *ngIf="!isLoggedIn">Welcome to Our Website</h1>
+      <p>Explore and discover tools!</p>
+    </div>
+</div>
+<br>
+<br>
+<div class="card-container">
+  <div class="card" *ngFor="let tool of tools" (click)="onCardClick(tool.id!)">
+    <img [src]="tool.src" class="card-img-top" alt="Card Image">
+    <div class="card-body">
+      <h5 class="card-title">Tool Name: <b>{{ tool.name }}</b></h5>
+      <div class="card-text">
+        <div>
+          <h5>Description:</h5>
+          <div class="tool-info-column">
+            <p class="truncate-text"><b>{{ tool.description }} </b></p>
+          </div>
+          <div class="tool-info">
+            <h5>Category:</h5>
+            <p><b>{{ tool.category.name }}</b></p>
+            <br>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="card-text"><mat-icon>store</mat-icon>
+        <div class="tool-info">
+          <h5>Name:</h5>
+          <h5><b>{{ tool.kiosk.name }}</b></h5>
+          <br>
+        </div>
+        <h5><b>{{ tool.kiosk.address }}</b></h5>
+      </div>
+    </div>
+    <div class="card-footer">
+      <small class="text-body-secondary">Price per day: <b>{{tool.price}} € </b></small>
+    </div>
+  </div>
+  </div>
+<br>
+<br>
+  
+  

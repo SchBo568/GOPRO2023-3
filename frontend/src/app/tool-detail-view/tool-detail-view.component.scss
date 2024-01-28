@@ -1,0 +1,155 @@
+.homepage-container {
+  position: relative;
+  height: 40vh;
+  overflow: hidden;
+  box-shadow: 10px 20px 18px 10px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #f0f0f0;
+  text-align: center; /* Center the thumbnails horizontally */
+}
+
+.homepage-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.thumbnail-container {
+  margin-top: 10px; /* Adjust as needed */
+  display: flex;
+  justify-content: center; /* Center the thumbnails horizontally */
+  flex-wrap: wrap; /* Allow the thumbnails to wrap onto a new line */
+}
+
+.thumbnail-container img {
+  width: 10%; /* Adjust the percentage size as needed for responsiveness */
+  max-width: 100px; /* Set a maximum width to avoid excessively large thumbnails on large screens */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: cover;
+  cursor: pointer;
+  margin: 5px; /* Adjust the space between thumbnails as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a box shadow */
+}
+
+.thumbnail-container img:hover {
+  border: 2px solid #683ab7; /* Optional: Highlight the selected thumbnail on hover */
+}
+
+.tool-info-container-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Adjust spacing between the rows */
+}
+
+.tool-info {
+  width: 48%; /* Adjust the width of each tool-info block */
+  padding: 10px;
+  border: 1px solid #ddd; /* Add a border for spacing */
+  box-sizing: border-box;
+}
+
+.tool-info h2 {
+  margin-bottom: 10px; /* Add spacing between the title and paragraphs */
+}
+
+/* your.component.scss */
+.reviews-container {
+  margin-top: 20px;
+}
+
+.review {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.review-author {
+  font-weight: bold;
+}
+
+.review-date {
+  color: #555;
+}
+
+.review-text {
+  font-size: 1.1em;
+}
+
+.review-stars {
+  display: flex;
+  color: #FFD700; /* Golden color for stars */
+  margin-bottom: 10px;
+}
+
+.review-stars mat-icon {
+  font-size: 1.2em;
+}
+
+.review-comment {
+  font-size: 1.1em;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  margin-top: 10px; /* Adjust the top margin as needed */
+}
+
+
+.myButton {
+	background-color:#683ab7;
+	border-radius:8px;
+	border:1px solid #683ab7;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:14px 40px;
+	text-decoration:none;
+  width: 100%;
+}
+
+.myButton:hover {
+	background-color:#5020a2 !important;
+}
+
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.demo-inline-calendar-card {
+  width: 300px;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .thumbnail-container img {
+    width: 20%; /* Adjust the size for smaller screens */
+  }
+}
+
+@media (max-width: 538px) {
+  .button-container {
+    width: 20%; /* Adjust the size for smaller screens */
+    flex-direction: column;
+  }
+}

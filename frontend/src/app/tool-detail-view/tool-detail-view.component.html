@@ -1,0 +1,67 @@
+<div class="homepage-container">
+    <img src="{{selectedPicture}}" alt="Homepage Image" class="homepage-image">
+</div>
+<br>
+<div class="thumbnail-container">
+    @for (picture of pictures; track picture) {
+        <img [src]="picture" alt="Thumbnail" (click)="setSelectedPicture(picture)" >
+    }
+</div>
+<br>
+<div class="tool-info-container-row">
+    <div class="tool-info">
+      <mat-icon>local_offer</mat-icon>
+      <h2>Tool Name: {{tool?.name}}</h2>
+      <p>Description: {{tool?.description}}</p>
+      <p>Category: {{tool?.category?.name}}</p>
+      <p>Condition: {{tool?.condition}}</p>
+      <p>Price per Day: {{tool?.price}} € </p>
+    </div>
+    <div class="tool-info">
+      <mat-icon>store</mat-icon>
+      <h2>Kiosk Name: {{tool?.kiosk?.name}}</h2>
+      <p>Address: {{tool?.kiosk?.address}}</p>
+      <p>Places: {{tool?.kiosk?.placeholder}}</p>
+    </div>
+</div>
+<h2>Check the availability:</h2>
+<div class="button-container">
+  <mat-form-field class="example-full-width">
+    <mat-label>From</mat-label>
+    <input matInput [min]="dateOfToday" [matDatepicker]="fromPicker" (dateChange)="updateMinDateOfSecondCalendar($event)">
+    <mat-datepicker-toggle matIconSuffix [for]="fromPicker"></mat-datepicker-toggle>
+    <mat-datepicker #fromPicker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Till</mat-label>
+    <input matInput  [min]="minDateOfSecondCalendar" [max]="maxDateOfSecondCalendar" [matDatepicker]="tillPicker" (dateChange)="calculatePrice($event)">
+    <mat-datepicker-toggle matIconSuffix [for]="tillPicker"></mat-datepicker-toggle>
+    <mat-datepicker #tillPicker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+<div class="button-row">
+  <button *ngIf="!isPriceCalculated" class="myButton" mat-button>Reserve Tool</button>
+  <button *ngIf="isPriceCalculated && !isLoggedIn" class="myButton" mat-button (click)="openLogin()">Reserve Tool for {{totalPrice}} €</button>
+  <button *ngIf="isPriceCalculated && isLoggedIn" class="myButton" mat-button (click)="reserveTool()">Reserve Tool for {{totalPrice}} €</button>
+</div>
+
+
+<div class="reviews-container">
+  <h2>Customer Reviews</h2>
+  <div *ngFor="let review of reviews" class="review">
+    <div class="review-header">
+      <span class="review-author">{{review.reviewingUser?.PK_username}}</span>
+      <span class="review-date">{{review.timestamp | date: 'medium'}}</span>
+    </div>
+    <div class="review-stars">
+      <mat-icon *ngFor="let _ of getStarArray(review.stars!)">star</mat-icon>
+    </div>
+    <p class="review-comment">{{review.comment}}</p>
+  </div>
+    <div *ngIf="!isReviewed"><p>No Reviews found!</p></div>
+</div>
+<br>
+  
+
+  

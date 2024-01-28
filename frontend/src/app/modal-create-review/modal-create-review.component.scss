@@ -1,0 +1,64 @@
+/* Original styles */
+.review-container {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  margin: 0 auto; /* Center the container */
+}
+
+.stars-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.comment-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.myButton {
+  background-color: #683ab7;
+  border-radius: 8px;
+  border: 1px solid #683ab7;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  text-decoration: none;
+  width: 100%;
+}
+
+.myButton:hover {
+  background-color: #5020a2 !important;
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+/* Responsive styles */
+@media screen and (min-width: 480px) {
+  .review-container {
+    width: 50%; /* Adjust the width for medium screens */
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .review-container {
+    width: 100%; /* Adjust the width for larger screens */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .review-container {
+    width: 100%; /* Adjust the width for extra-large screens */
+  }
+}

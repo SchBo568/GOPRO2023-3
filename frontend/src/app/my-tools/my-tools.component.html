@@ -1,0 +1,165 @@
+<mat-tab-group>
+    <mat-tab label="Registered">
+        <br>
+          <div class="card-container">
+            <div class="card" *ngFor="let tool of registeredTools" >
+              <img [src]="tool.src" class="card-img-top" alt="Card Image">
+              <div class="card-body">
+                <h5 class="card-title">Tool Name: <b>{{ tool.name }}</b></h5>
+                <div class="card-text">
+                  <div>
+                    <h5>Description:</h5>
+                    <div class="tool-info-column">
+                      <p class="truncate-text"><b>{{ tool.description }} </b></p>
+                    </div>
+                    <div class="tool-info">
+                      <h5>Category:</h5>
+                      <p><b>{{ tool.category?.name! }}</b></p>
+                      <br>
+                    </div>
+                  </div>
+                  <hr>
+                </div>
+                <div class="card-text"><mat-icon>store</mat-icon>
+                  <div class="tool-info">
+                    <h5>Name:</h5>
+                    <h5><b>{{ tool.kiosk?.name! }}</b></h5>
+                    <br>
+                  </div>
+                  <h5><b>{{ tool.kiosk?.address! }}</b></h5>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-md-6">
+                    <small class="text-body-secondary">
+                      Price: <b>{{tool.price}} € </b>
+                    </small>
+                  </div>
+                  <div class="col-md-6 text-right">
+                    <small class="text-body-secondary">
+                      <button mat-icon-button class="custom-icon-button mat-flat-button" (click)="onButtonClick(tool.id!)" [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-icon-button mat-menu-item (click)="onMenuClickStatus('Under Maintainance', tool.id!)">Maintain <mat-icon>build</mat-icon></button>
+                        <button mat-icon-button mat-menu-item (click)="onMenuClickStatus('Published', tool.id!)">Publish <mat-icon>login</mat-icon></button>
+                        <button mat-icon-button mat-menu-item (click)="onMenuClickUpdate(tool.id!)">Edit <mat-icon>edit</mat-icon></button>
+                        <button mat-icon-button mat-menu-item (click)="onMenuClickDelete(tool.id!)">Delete <mat-icon>delete</mat-icon></button>
+                      </mat-menu>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </mat-tab>
+    <mat-tab label="Published">
+        <br>
+          <div class="card-container">
+            <div class="card" *ngFor="let tool of publishedTools" >
+              <img [src]="tool.src" class="card-img-top" alt="Card Image">
+              <div class="card-body">
+                <h5 class="card-title">Tool Name: <b>{{ tool.name }}</b></h5>
+                <div class="card-text">
+                  <div>
+                    <h5>Description:</h5>
+                    <div class="tool-info-column">
+                      <p class="truncate-text"><b>{{ tool.description }} </b></p>
+                    </div>
+                    <div class="tool-info">
+                      <h5>Category:</h5>
+                      <p><b>{{ tool.category?.name! }}</b></p>
+                      <br>
+                    </div>
+                  </div>
+                  <hr>
+                </div>
+                <div class="card-text"><mat-icon>store</mat-icon>
+                  <div class="tool-info">
+                    <h5>Name:</h5>
+                    <h5><b>{{ tool.kiosk?.name! }}</b></h5>
+                    <br>
+                  </div>
+                  <h5><b>{{ tool.kiosk?.address! }}</b></h5>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-md-6">
+                    <small class="text-body-secondary">
+                      Price: <b>{{tool.price}} € </b>
+                    </small>
+                  </div>
+                  <div class="col-md-6 text-right">
+                    <small class="text-body-secondary">
+                      <button mat-icon-button class="custom-icon-button mat-flat-button" (click)="onButtonClick(tool.id!)" [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-icon-button mat-menu-item (click)="onMenuClickStatus('Under Maintainance', tool.id!)">Maintain <mat-icon>build</mat-icon></button>
+                        <button mat-icon-button mat-menu-item (click)="onMenuClickStatus('Registered', tool.id!)">Take from Kiosk <mat-icon>logout</mat-icon></button>
+                      </mat-menu>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </mat-tab>
+    
+    <mat-tab label="Maintainance">
+        <br>
+          <div class="card-container">
+            <div class="card" *ngFor="let tool of maintainanceTools" >
+              <img [src]="tool.src" class="card-img-top" alt="Card Image">
+              <div class="card-body">
+                <h5 class="card-title">Tool Name: <b>{{ tool.name }}</b></h5>
+                <div class="card-text">
+                  <div>
+                    <h5>Description:</h5>
+                    <div class="tool-info-column">
+                      <p class="truncate-text"><b>{{ tool.description }} </b></p>
+                    </div>
+                    <div class="tool-info">
+                      <h5>Category:</h5>
+                      <p><b>{{ tool.category?.name! }}</b></p>
+                      <br>
+                    </div>
+                  </div>
+                  <hr>
+                </div>
+                <div class="card-text"><mat-icon>store</mat-icon>
+                  <div class="tool-info">
+                    <h5>Name:</h5>
+                    <h5><b>{{ tool.kiosk?.name! }}</b></h5>
+                    <br>
+                  </div>
+                  <h5><b>{{ tool.kiosk?.address! }}</b></h5>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-md-6">
+                    <small class="text-body-secondary">
+                      Price: <b>{{tool.price}} € </b>
+                    </small>
+                  </div>
+                  <div class="col-md-6 text-right">
+                    <small class="text-body-secondary">
+                      <button mat-icon-button class="custom-icon-button mat-flat-button" (click)="onButtonClick(tool.id!)" [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                        <mat-menu #menu="matMenu">
+                          <button mat-icon-button mat-menu-item (click)="onMenuClickStatus('Published', tool.id!)">Publish <mat-icon>login</mat-icon></button>
+                          <button mat-icon-button mat-menu-item (click)="onMenuClickUpdate(tool.id!)">Edit <mat-icon>edit</mat-icon></button>
+                          <button mat-icon-button mat-menu-item (click)="onMenuClickDelete(tool.id!)">Delete <mat-icon>delete</mat-icon></button>
+                        </mat-menu>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </mat-tab>
+  </mat-tab-group>

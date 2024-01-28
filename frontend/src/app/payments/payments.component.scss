@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+  }
+
+  .myButton {
+    background-color: #683ab7; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .myButton:hover {
+    background-color: #5020a2 !important ; /* Darker green on hover */
+  }

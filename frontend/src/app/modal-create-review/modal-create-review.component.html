@@ -1,0 +1,11 @@
+<!-- modal-create-review.component.html -->
+<div class="review-container">
+  <h2>Give us your opinion</h2>
+
+  <div class="stars-container">
+    <p-rating [(ngModel)]="value" [cancel]="false"></p-rating>
+  </div>
+
+  <textarea class="comment-input" [(ngModel)]="reviewComment" placeholder="Write your review here"></textarea>
+  <button class="myButton" (click)="submitReview()">Submit Review</button>
+</div>
